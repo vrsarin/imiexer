@@ -4,22 +4,33 @@ Pronounced: `im-ee-ex-er`
 
 “A lightweight, Python-native mocking engine designed for intelligent testing, seamless integration, and future-ready extensibility.”
 
-## What is imiexer?
+## About
 
 imiexer is a flexible, pluggable mock server framework for Python services — designed to bridge the feature gaps left by traditional mocking tools across languages and ecosystems.
 
-While imiexer is not a port or rewrite of existing tools, we acknowledge the excellence of Java-based tools like WireMock, Hoverfly, and others that have set strong foundations in the service mocking domain. imiexer draws inspiration from these tools and aims to bring their best ideas into the Python ecosystem — with an emphasis on simplicity, integration, extensibility, and a true shift-left approach.
+While imiexer is not a port or rewrite of existing tools, we acknowledge the excellence of Java-based tools like WireMock, Hoverfly, and others that have set strong foundations in the service mocking domain. imiexer draws inspiration from these tools and aims to bring their best ideas into the Python ecosystem — with an emphasis on simplicity, integration, extensibility, and a true **Shift-Left Approach**.
 
 It delivers a clean developer experience, deep test integration, and smart OpenAPI-aware mocking, while remaining fully extensible for advanced use cases like:
 
+### 🛠 Use Cases
+
+1. Simulate upstream services during local dev
+1. Run unit and integration tests against predictable mocks
+1. Build OpenAPI-driven mocking setups
+1. Replay recorded interactions in CI pipelines
 1. Mocking services during unit testing
 1. Acting as a recorder during contract testing
 1. Supporting component-level testing
 1. Enabling behavior-driven service emulation
+1. Extend via plugins for contract verification or stateful testing
 
-## Why imiexer?
+> _imiexer_ is not a port or fork of any tool existing but derives its lot of inspirations from various tools to build a single tool that can fit in any python testing framework. _imiexer_ may not implement any feature that does not truly required for service mocking and dependent processes. Instead will provide ability to extend and create capabilties that may benefit from a Service Mocking Tool.
 
-`Lightweight Python simplicity and powerful mocking — with a true shift-left approach.`
+### Our Inspirations
+
+> Lightweight Python simplicity and powerful mocking — with a true **Shift-Left Approach**.
+
+We started with a simple goal to build a Python-Native service mocking tool that can integrate with modern testing tools like
 
 - ✔️ **Lightweight & Python-native** — No Java, no containers, and zero external runtimes required
 - ✔️ **Multi-service mocking** — Run multiple providers in parallel with isolated behaviors
@@ -27,109 +38,89 @@ It delivers a clean developer experience, deep test integration, and smart OpenA
 - ✔️ **OpenAPI-first & Shift-Left Ready** — Unlike WireMock, imiexer embraces shift-left practices by supporting OpenAPI-driven mocking, validation, and test scaffolding directly from your service contracts
 - ✔️ **Developer-Friendly Interface** — Supports decorators, YAML configuration, fluent API (planned), and CLI integration for flexible test orchestration
 
-## Our Inspirations
+### High Level Comparison
 
-| Tool             | Language | Core Focus                        | Description / Purpose                                                                                   | Limitations / Caveats                            | Best Suited For                                                            | Features Influencing imiexer                            |
-| ---------------- | -------- | --------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------- | ------------------------------------------------------- |
-| **WireMock**     | Java     | HTTP Mocking for CI               | Java-based HTTP stubbing tool used widely in enterprise CI with expectations and scenario-based setups. | Requires Java, not OpenAPI-aware                 | Java teams and backend CI pipelines needing mature HTTP stubbing.          | Request matching, fault simulation, response templating |
-| **MockServer**   | Java     | Advanced HTTP Mocking             | Rich Java mock server with support for expectations, validation, and contracts.                         | Heavyweight, not easily CI/test integrated       | Backend systems needing strict validation logic for contract matching.     | Expectation validation, contract-focused design         |
-| **Karate**       | Java     | API Test + Mocking Framework      | DSL-based test suite for API testing with built-in mocking, validation, and contract testing.           | DSL-heavy, Java-based                            | QA and integration teams needing expressive API test scenarios with mocks. | Integrated test + mock design, BDD support              |
-| **Microcks**     | Java     | API Mocking + Governance          | Contract and example-based mocking platform with OpenAPI/AsyncAPI support and test coverage dashboards. | Heavy to self-host, platform-focused             | API platform teams that manage contracts, examples, and mocking at scale.  | Contract-driven mocking, API governance approach        |
-| **Dredd**        | Node.js  | OpenAPI Conformance Testing (CLI) | CLI tool to test whether a backend API implementation conforms to an OpenAPI specification.             | No mocks, validator only                         | Verifying implementation against spec, often integrated into CI.           | OpenAPI validation, CI-oriented spec checks             |
-| **Prism**        | Node.js  | OpenAPI Mocking                   | Mock server that simulates APIs directly from OpenAPI documents, ideal for design-first workflows.      | Not programmable, no test-runner tie-in          | Mocking APIs early in design phases to help frontend/backend integration.  | OpenAPI-first mocking, shift-left design thinking       |
-| **Schemathesis** | Python   | OpenAPI-based Test Generation     | Generates property-based tests from OpenAPI definitions to fuzz and validate endpoints.                 | No mocking, test-only tool                       | Testing APIs for correctness, conformance, and edge case handling.         | Schema validation, fuzz testing, spec-first coverage    |
-| **Mockintosh**   | Python   | YAML-based Mock Server            | Declarative mock server configured with YAML, suitable for simulating RESTful services.                 | Static, lacks runtime logic and extensibility    | Lightweight REST mocking with readable configuration.                      | YAML-based config patterns, simplified service mocks    |
-| **Mountebank**   | Node.js  | Multi-protocol Simulation         | Flexible JSON-based mock server supporting HTTP, TCP, SMTP, etc. with easy config.                      | Not Python-native, lacks test-runner integration | Quick simulations of diverse protocols with minimal setup.                 | Multi-protocol simulation, JSON-driven mocks            |
-| **Hoverfly**     | Go       | Proxy-based Simulation            | Captures and simulates traffic through proxying, with scripting support for dynamic behavior.           | Requires Go, scripting knowledge                 | Integrating traffic replay/mirroring into integration tests or CI.         | Proxy mode, scripting, dynamic traffic replay           |
-
-> For complete features comparison for each tool [click here](./docs/feature_comparison.md) 
-
-## 🛠 Use Cases
-
-1. Simulate upstream services during local dev
-1. Run unit and integration tests against predictable mocks
-1. Build OpenAPI-driven mocking setups
-1. Replay recorded interactions in CI pipelines
-1. Extend via plugins for contract verification or stateful testing
+| Tool            | Language | Strength (Core Focus + Best Suited For)                                          | Description (Descr + Limitation)                                                                                                             | Feature Influencing imexer                              |
+|-----------------|----------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| **WireMock**    | Java     | HTTP Mocking for CI; ideal for Java teams and backend CI pipelines               | Java-based HTTP stubbing tool with scenario-based setups. Requires Java and is not OpenAPI-aware.                                              | Request matching, fault simulation, response templating |
+| **MockServer**  | Java     | Advanced HTTP Mocking; best for backend systems needing strict validation         | Rich mock server supporting expectations, validation, and contracts. Heavyweight and not easily integrated into CI/test pipelines.          | Expectation validation, contract-focused design         |
+| **Karate**      | Java     | API Test + Mocking Framework; suited for QA and integration teams                | DSL-based test suite for API testing with built-in mocking and validation. DSL-heavy and Java-based.                                           | Integrated test + mock design, BDD support              |
+| **Microcks**    | Java     | API Mocking + Governance; ideal for teams managing contracts and examples         | Provides OpenAPI/AsyncAPI support with test coverage dashboards. Heavy to self-host and platform-focused.                                      | Contract-driven mocking, API governance approach        |
+| **Dredd**       | Node.js  | OpenAPI Conformance Testing (CLI); great for CI spec verification                  | CLI tool for testing backend API conformity to OpenAPI specs. Does not offer mocking capabilities.                                             | OpenAPI validation, CI-oriented spec checks             |
+| **Prism**       | Node.js  | OpenAPI Mocking; best for design-first workflows aiding frontend/backend integration | Simulates APIs directly from OpenAPI documents. Not programmable and lacks test-runner integration.                                             | OpenAPI-first mocking, shift-left design thinking       |
+| **Schemathesis**| Python   | OpenAPI-based Test Generation; ideal for testing correctness and edge cases       | Generates property-based tests from OpenAPI definitions to fuzz endpoints. It is a test-only tool with no mocking capability.                    | Schema validation, fuzz testing, spec-first coverage    |
+| **Mockintosh**  | Python   | YAML-based Mock Server; perfect for lightweight REST mocking                     | Configured via YAML for simulating RESTful services. Static with limited runtime logic and extensibility.                                      | YAML-based config patterns, simplified service mocks    |
+| **Mountebank**  | Node.js  | Multi-protocol Simulation; excels in quick simulation of diverse protocols         | JSON-based mock server supporting HTTP, TCP, SMTP, etc. Not Python-native and lacks test-runner integration.                                   | Multi-protocol simulation, JSON-driven mocks            |
+| **Hoverfly**    | Go       | Proxy-based Simulation; ideal for traffic replay and dynamic integration testing   | Captures and simulates traffic through proxying with scripting support. Requires Go and scripting expertise.                                   | Proxy mode, scripting, dynamic traffic replay           |
 
 ## imiexer Features Roadmap
 
-> Legend: ✅ Completed | 🚧 In Progress | 🧩 Planned | ❌ Not Planned
+> Legend: ✅ Completed | 🔄 In Progress | ⏳ Planned | ❌ Not Planned |
 
-1. Execution & Integration
-   - 🚧 PyTest support
-   - 🚧 UnitTest support
-   - [ ] CLI support
-   - ✅ Config-Based (YAML/env) support
-   - ✅ Decorator-Based API implementation
-   - [ ] Fluent API (chainable methods)
-   - [ ] CI/CD CLI
-   - [ ] Shift-Left Approach
-   - [ ] Container Support ( No Plans)
-   - [ ] Standalone ( No Plans)
-1. Core Mocking Capabilities
-   - [ ] Multi-Service Support
-   - [ ] Stubbing
-   - [ ] Dynamic Response Templating
-   - [ ] Fault injection / delays
-   - [ ] Stateful Behaviors
-   - [ ] Request logging / history
-   - [ ] OpenAPI spec integration / validation
-   - [ ] Interaction recording
-   - [ ] Fixture file support
-1. Protocol Support
-   - [ ] HTTP support
-   - [ ] HTTPS support
-   - [ ] TCP support
-   - [ ] WebSocket support
-   - [ ] gRPC support
-   - [ ] GraphQL support
-1. Monitoring & Administration
-   - [ ] Dashboard UI
-   - [ ] Admin REST API
-   - [ ] Logs & metrics
-1. OpenAPI Compatibility
-   - [ ] Swagger/JSON support
-   - [ ] Spec validation
-1. Dynamic Response Templating
-   - [ ] Templating engine
-   - [ ] Conditional logic
-   - [ ] Response injection
-1. Matching Rules
-   - [ ] Matchers supported
-   - [ ] Matcher engine type
-   - [ ] Matcher customization
-1. Stateful Mocking
-   - [ ] Scenario responses
-   - [ ] History tracking
-   - [ ] Mutable state
-   - [ ] Sequence mocking
-1. Plugin & Extensibility
-   - [ ] Extensibility
-   - [ ] Plugin system
-   - [ ] Behavior injection
-   - [ ] Plugin ecosystem
-1. Recording Capabilities
-   - [ ] Interaction logging
-   - [ ] Replay support
-   - [ ] Inspection API
-1. Advanced Features
-   - [ ] Proxying
-   - [ ] http/s support
-   - [ ] gRPC support
-   - [ ] GraphQL support
-   - [ ] Webhooks and Callbacks
-   - [ ] URL matching
-   - [ ] HTTP Method matching
-   - [ ] Query parameters matching
-   - [ ] Form parameters matching
-   - [ ] Headers matching
-   - [ ] Basic authentication
-   - [ ] Cookies matching
-   - [ ] Request body matching
-   - [ ] Multipart/form-data matchin
-   - [ ] Lifecycle events
-   - [ ] Admin API and UI
-   - [ ] Artificial Intelligence
-   - [ ] Multi-Domain support
-   - [ ] Behavior-Driven Development (BDD)
+1. **Mocking Engine**
+   - **Execution & Integration**
+     - ✅ Config-Based (YAML/env) support - YAML & JSON configuration files and environment variable loading.
+     - ✅ Decorator-Based API implementation - Provides decorators for simple mock endpoint setup.
+     - 🔄 PyTest support - Enable integration with the PyTest framework.
+     - 🔄 UnitTest support - Compatibility with Python's unittest framework.
+     - ⏳ Fluent API (chainable methods) - Intuitive, chainable configuration.
+     - ⏳ CI/CD CLI Support - Command-line tools for CI/CD pipeline integration.
+   - **Protocol Support**
+     - ✅ HTTP support - Handles HTTP requests for service mocking.
+     - ✅ HTTPS support - Secure HTTPS communication.
+     - ⏳ TCP support - Planned support for TCP-based protocols.
+     - ⏳ WebSocket support - Intended for real-time interactions.
+     - ⏳ gRPC support - Planned gRPC simulation.
+     - ⏳ GraphQL support - Planned GraphQL API mocking.
+   - **OpenAPI Compatibility**
+     - 🔄 Swagger/JSON support - Generate mocks from Swagger/JSON definitions.
+     - 🔄 Spec validation - Validate mocks against OpenAPI specifications.
+   - **Dynamic Response Templating**
+     - ✅ Templating engine - Utilizes Jinja2 for dynamic response rendering.
+     - ✅ Conditional logic - Leverages template conditions for adaptive responses.
+     - ✅ Response injection - Injects dynamic content into responses.
+   - **Matching Rules**
+     - ✅ URL matching - Matches incoming requests by URL paths.
+     - ✅ Headers matching - Uses regex-based header matching.
+     - ✅ Request body matching - Implements regex matching for request bodies.
+     - ⏳ Matchers supported - Additional matching options are planned.
+     - ⏳ Matcher engine type - Customization of the matching engine is in planning.
+     - ⏳ Matcher customization - Support for further custom matcher options is planned.
+     - ⏳ HTTP Method matching - Planned enhancement for matching by HTTP verbs.
+     - ⏳ Query parameters matching - Future support for regex matching of query params.
+     - ⏳ Form parameters matching - Planned matching for form data.
+     - ⏳ Cookies matching - Future matching based on cookies.
+     - ⏳ Multipart/form-data matching - Intended for multipart request handling.
+   - **Stateful Behavior Mocking**
+     - 🔄 Scenario responses - Planned support for multi-step, scenario-based responses.
+     - ⏳ History tracking - Maintain interaction history for stateful tests (planned).
+     - ⏳ Mutable state - Enable dynamic state changes across interactions (planned).
+     - ⏳ Sequence mocking - Provide sequential responses in stateful flows (planned).
+   - **Recording Capabilities**
+     - ✅ Interaction recording - Records all interactions for playback and analysis.
+     - 🔄 Request logging - Detailed logging of incoming requests is planned.
+     - 🔄 Replay support - Future support for replaying recorded interactions.
+     - 🔄 Inspection API - An API to inspect and query recorded data is in planning.
+   - ✅ Multi-Service Support - Manages multiple mock services concurrently.
+   - ✅ Fault injection / delays - Simulates response delays and fault conditions.
+   - ⏳ Fixture file support - Planned loading of predefined response fixtures.
+   - ⏳ Stubbing - Mapping static responses to endpoints is planned.
+2. **Plugin & Extensibility**
+   - ✅ Lifecycle events - Hooks for various server lifecycle stages are supported.
+   - ✅ Plugin system - Basic plugin registration and processing are implemented.
+   - 🔄 Behavior injection - Future support for dynamic injection of custom behaviors.
+   - 🔄 Plugin ecosystem - Community-driven plugin extensions are in planning.
+3. **Advanced Support**
+   - **Authentication Mocking**
+     - ⏳ Basic authentication - Simulation for basic authentication is planned.
+   - ⏳ Artificial Intelligence - Integration for intelligent response simulation is in planning.
+   - ⏳ Proxying - Enable proxying of requests to live services (planned).
+   - ⏳ Multi-Domain support - Future support for serving multiple domains.
+   - ⏳ Behavior-Driven Development (BDD) - Planned support for BDD-driven testing workflows.
+   - **Monitoring & Administration**
+     - ⏳ Admin API and UI - Planned administrative interfaces for monitoring.
+     - ⏳ Dashboard UI - A real-time system dashboard is intended.
+     - ⏳ Admin REST API - REST endpoints for administrative tasks are in planning.
+     - ⏳ Logs & metrics - Logging and metrics collection are planned.
+   - ❌ Container Support - Enable containerized environments.
+   - ❌ Standalone - Support running imiexer as a standalone server.
