@@ -46,78 +46,78 @@ It delivers a clean developer experience, deep test integration, and smart OpenA
 
 ### Test Framework Support
 
-| Feature          | WireMock | MockServer | Karate      | Microcks | Dredd | Prism | Schemathesis | Mountebank | Hoverfly | Mockintosh | imiexer |
-| ---------------- | -------- | ---------- | ----------- | -------- | ----- | ----- | ------------ | ---------- | -------- | ---------- | ------- |
-| PyTest support   | ❌       | ❌         | ⚠️ Indirect | ❌       | ❌    | ❌    | ❌           | ❌         | ❌       | ✅         | ✅      |
-| UnitTest support | ❌       | ❌         | ❌          | ❌       | ❌    | ❌    | ❌           | ❌         | ❌       | ❌         | ✅      |
-| CLI support      | ❌       | ❌         | ⚠️ Custom   | ✅       | ✅    | ❌    | ✅           | ⚠️ Manual  | ❌       | ✅         | ✅      |
+| Feature          | WireMock | MockServer | Karate      | Microcks | Dredd | Prism | Schemathesis | Mountebank | Hoverfly | Mockintosh |
+| ---------------- | -------- | ---------- | ----------- | -------- | ----- | ----- | ------------ | ---------- | -------- | ---------- |
+| PyTest support   | ❌       | ❌         | ⚠️ Indirect | ❌       | ❌    | ❌    | ❌           | ❌         | ❌       | ✅         |
+| UnitTest support | ❌       | ❌         | ❌          | ❌       | ❌    | ❌    | ❌           | ❌         | ❌       | ❌         |
+| CLI support      | ❌       | ❌         | ⚠️ Custom   | ✅       | ✅    | ❌    | ✅           | ⚠️ Manual  | ❌       | ✅         |
 
 ### OpenAPI Compatibility
+| Feature              | WireMock | MockServer | Karate      | Microcks | Dredd | Prism | Schemathesis | Mountebank | Hoverfly   | Mockintosh | 
+| -------------------- | -------- | ---------- | ----------- | -------- | ----- | ----- | ------------ | ---------- | ---------- | ---------- | 
+| Swagger/JSON support | ❌       | ✅         | ⚠️ Indirect | ✅       | ✅    | ✅    | ✅           | ⚠️ Partial | ⚠️ Partial | ❌         |
+| Spec validation      | ❌       | ✅         | ⚠️ Partial  | ✅       | ✅    | ✅    | ✅           | ⚠️ Basic   | ⚠️ Basic   | ❌         |
 
-| Feature              | WireMock | MockServer | Karate      | Microcks | Dredd | Prism | Schemathesis | Mountebank | Hoverfly   | Mockintosh | imiexer |
-| -------------------- | -------- | ---------- | ----------- | -------- | ----- | ----- | ------------ | ---------- | ---------- | ---------- | ------- |
-| Swagger/JSON support | ❌       | ✅         | ⚠️ Indirect | ✅       | ✅    | ✅    | ✅           | ⚠️ Partial | ⚠️ Partial | ❌         | ✅      |
-| Spec validation      | ❌       | ✅         | ⚠️ Partial  | ✅       | ✅    | ✅    | ✅           | ⚠️ Basic   | ⚠️ Basic   | ❌         | ✅      |
 
 ### Protocol Support
 
-| Feature           | WireMock | MockServer | Karate | Microcks | Dredd | Prism | Schemathesis | Mountebank | Hoverfly | Mockintosh | imiexer    |
-| ----------------- | -------- | ---------- | ------ | -------- | ----- | ----- | ------------ | ---------- | -------- | ---------- | ---------- |
-| HTTP support      | ✅       | ✅         | ✅     | ✅       | ✅    | ✅    | ✅           | ✅         | ✅       | ✅         | ✅         |
-| HTTPS support     | ✅       | ✅         | ✅     | ✅       | ✅    | ✅    | ✅           | ✅         | ✅       | ⚠️ Partial | ✅ Planned |
-| TCP support       | ❌       | ❌         | ❌     | ❌       | ❌    | ❌    | ❌           | ✅         | ✅       | ❌         | ❌         |
-| WebSocket support | ❌       | ❌         | ❌     | ❌       | ❌    | ❌    | ❌           | ⚠️ Partial | ✅       | ❌         | ⚠️ Planned |
-| gRPC support      | ❌       | ❌         | ❌     | ❌       | ❌    | ❌    | ❌           | ❌         | ❌       | ❌         | ⚠️ Planned |
-| GraphQL support   | ❌       | ❌         | ❌     | ✅       | ❌    | ✅    | ❌           | ❌         | ❌       | ❌         | ⚠️ Planned |
+| Feature           | WireMock | MockServer | Karate | Microcks | Dredd | Prism | Schemathesis | Mountebank | Hoverfly | Mockintosh | 
+| ----------------- | -------- | ---------- | ------ | -------- | ----- | ----- | ------------ | ---------- | -------- | ---------- | 
+| HTTP support      | ✅       | ✅         | ✅     | ✅       | ✅    | ✅    | ✅           | ✅         | ✅       | ✅         |
+| HTTPS support     | ✅       | ✅         | ✅     | ✅       | ✅    | ✅    | ✅           | ✅         | ✅       | ⚠️ Partial |
+| TCP support       | ❌       | ❌         | ❌     | ❌       | ❌    | ❌    | ❌           | ✅         | ✅       | ❌         |
+| WebSocket support | ❌       | ❌         | ❌     | ❌       | ❌    | ❌    | ❌           | ⚠️ Partial | ✅       | ❌         |
+| gRPC support      | ❌       | ❌         | ❌     | ❌       | ❌    | ❌    | ❌           | ❌         | ❌       | ❌         |
+| GraphQL support   | ❌       | ❌         | ❌     | ✅       | ❌    | ✅    | ❌           | ❌         | ❌       | ❌         |
 
 ### Dynamic Response Templating
 
-| Feature            | WireMock  | MockServer | Karate     | Microcks  | Dredd | Prism | Schemathesis | Mountebank   | Hoverfly   | Mockintosh | imiexer    |
-| ------------------ | --------- | ---------- | ---------- | --------- | ----- | ----- | ------------ | ------------ | ---------- | ---------- | ---------- |
-| Templating engine  | ✅ DSL    | ⚠️ Static  | ✅ DSL     | ⚠️ Static | ❌    | ❌    | ❌           | ✅ Lua/Go    | ✅ Lua     | ⚠️ Basic   | ✅ Jinja2  |
-| Conditional logic  | ✅ Rules  | ⚠️ Partial | ✅ If/Else | ⚠️ Basic  | ❌    | ❌    | ❌           | ✅ Scripts   | ✅ Scripts | ❌         | ✅ Full    |
-| Response injection | ✅ Params | ⚠️ Tokens  | ✅ Vars    | ⚠️ Limit  | ❌    | ❌    | ❌           | ✅ Templates | ✅ Templ.  | ⚠️ Static  | ✅ Dynamic |
+| Feature            | WireMock  | MockServer | Karate     | Microcks  | Dredd | Prism | Schemathesis | Mountebank   | Hoverfly   | Mockintosh | 
+| ------------------ | --------- | ---------- | ---------- | --------- | ----- | ----- | ------------ | ------------ | ---------- | ---------- | 
+| Templating engine  | ✅ DSL    | ⚠️ Static  | ✅ DSL     | ⚠️ Static | ❌    | ❌    | ❌           | ✅ Lua/Go    | ✅ Lua     | ⚠️ Basic   |
+| Conditional logic  | ✅ Rules  | ⚠️ Partial | ✅ If/Else | ⚠️ Basic  | ❌    | ❌    | ❌           | ✅ Scripts   | ✅ Scripts | ❌         |
+| Response injection | ✅ Params | ⚠️ Tokens  | ✅ Vars    | ⚠️ Limit  | ❌    | ❌    | ❌           | ✅ Templates | ✅ Templ.  | ⚠️ Static  |
 
 ### Matching Rules
 
-| Feature               | WireMock  | MockServer | Karate | Microcks  | Dredd | Prism    | Schemathesis  | Mountebank  | Hoverfly  | Mockintosh | imiexer   |
-| --------------------- | --------- | ---------- | ------ | --------- | ----- | -------- | ------------- | ----------- | --------- | ---------- | --------- |
-| Matchers supported    | ✅ Strong | ✅ Regex   | ✅     | ✅ Rules  | ❌    | ⚠️ Basic | ⚠️ Schema     | ✅ JSONPath | ✅        | ⚠️ Basic   | ✅ Flex   |
-| Matcher engine type   | ✅ Custom | ✅ Regex   | ✅ DSL | ✅ Schema | ❌    | ⚠️ Basic | ✅ Hypothesis | ✅ JSONPath | ✅        | ⚠️ Basic   | ✅ Custom |
-| Matcher customization | ✅ Full   | ⚠️ Limited | ⚠️ DSL | ✅ Profs  | ❌    | ❌       | ⚠️ Schema     | ⚠️ Partial  | ⚠️ Static | ❌         | ✅ Logic  |
+| Feature               | WireMock  | MockServer | Karate | Microcks  | Dredd | Prism    | Schemathesis  | Mountebank  | Hoverfly  | Mockintosh | 
+| --------------------- | --------- | ---------- | ------ | --------- | ----- | -------- | ------------- | ----------- | --------- | ---------- | 
+| Matchers supported    | ✅ Strong | ✅ Regex   | ✅     | ✅ Rules  | ❌    | ⚠️ Basic | ⚠️ Schema     | ✅ JSONPath | ✅        | ⚠️ Basic   |
+| Matcher engine type   | ✅ Custom | ✅ Regex   | ✅ DSL | ✅ Schema | ❌    | ⚠️ Basic | ✅ Hypothesis | ✅ JSONPath | ✅        | ⚠️ Basic   |
+| Matcher customization | ✅ Full   | ⚠️ Limited | ⚠️ DSL | ✅ Profs  | ❌    | ❌       | ⚠️ Schema     | ⚠️ Partial  | ⚠️ Static | ❌         |
 
 ### Stateful Mocking
 
-| Feature            | WireMock   | MockServer | Karate | Microcks   | Dredd | Prism | Schemathesis | Mountebank | Hoverfly   | Mockintosh | imiexer |
-| ------------------ | ---------- | ---------- | ------ | ---------- | ----- | ----- | ------------ | ---------- | ---------- | ---------- | ------- |
-| Scenario responses | ✅         | ✅         | ✅     | ✅         | ❌    | ❌    | ❌           | ✅         | ✅         | ❌         | ✅      |
-| History tracking   | ✅         | ⚠️ Partial | ✅     | ✅         | ❌    | ❌    | ❌           | ⚠️ Partial | ⚠️ Partial | ❌         | ✅      |
-| Mutable state      | ⚠️ Limited | ❌         | ✅     | ✅         | ❌    | ❌    | ❌           | ⚠️ Partial | ⚠️ Partial | ❌         | ✅      |
-| Sequence mocking   | ✅         | ⚠️ Limited | ✅     | ⚠️ Partial | ❌    | ❌    | ❌           | ✅         | ⚠️ Script  | ❌         | ✅      |
+| Feature            | WireMock   | MockServer | Karate | Microcks   | Dredd | Prism | Schemathesis | Mountebank | Hoverfly   | Mockintosh | 
+| ------------------ | ---------- | ---------- | ------ | ---------- | ----- | ----- | ------------ | ---------- | ---------- | ---------- | 
+| Scenario responses | ✅         | ✅         | ✅     | ✅         | ❌    | ❌    | ❌           | ✅         | ✅         | ❌         |
+| History tracking   | ✅         | ⚠️ Partial | ✅     | ✅         | ❌    | ❌    | ❌           | ⚠️ Partial | ⚠️ Partial | ❌         |
+| Mutable state      | ⚠️ Limited | ❌         | ✅     | ✅         | ❌    | ❌    | ❌           | ⚠️ Partial | ⚠️ Partial | ❌         |
+| Sequence mocking   | ✅         | ⚠️ Limited | ✅     | ⚠️ Partial | ❌    | ❌    | ❌           | ✅         | ⚠️ Script  | ❌         |
 
 ### Recording Capabilities
 
-| Feature             | WireMock  | MockServer | Karate     | Microcks | Dredd | Prism | Schemathesis | Mountebank | Hoverfly | Mockintosh | imiexer    |
-| ------------------- | --------- | ---------- | ---------- | -------- | ----- | ----- | ------------ | ---------- | -------- | ---------- | ---------- |
-| Interaction logging | ✅        | ✅         | ✅         | ✅       | ❌    | ❌    | ❌           | ✅         | ✅       | ❌         | ✅         |
-| Replay support      | ⚠️ Manual | ⚠️ Partial | ✅         | ✅       | ❌    | ❌    | ❌           | ⚠️ Script  | ✅       | ❌         | ✅         |
-| Inspection API      | ⚠️ Tools  | ⚠️ Limited | ✅ Inspect | ✅ UI    | ❌    | ❌    | ❌           | ⚠️ CLI     | ✅ UI    | ❌         | ⚠️ Planned |
+| Feature             | WireMock  | MockServer | Karate     | Microcks | Dredd | Prism | Schemathesis | Mountebank | Hoverfly | Mockintosh | 
+| ------------------- | --------- | ---------- | ---------- | -------- | ----- | ----- | ------------ | ---------- | -------- | ---------- | 
+| Interaction logging | ✅        | ✅         | ✅         | ✅       | ❌    | ❌    | ❌           | ✅         | ✅       | ❌         |
+| Replay support      | ⚠️ Manual | ⚠️ Partial | ✅         | ✅       | ❌    | ❌    | ❌           | ⚠️ Script  | ✅       | ❌         |
+| Inspection API      | ⚠️ Tools  | ⚠️ Limited | ✅ Inspect | ✅ UI    | ❌    | ❌    | ❌           | ⚠️ CLI     | ✅ UI    | ❌         |
 
 ### Admin & Monitoring
 
-| Feature        | WireMock   | MockServer | Karate | Microcks | Dredd | Prism | Schemathesis | Mountebank | Hoverfly   | Mockintosh | imiexer    |
-| -------------- | ---------- | ---------- | ------ | -------- | ----- | ----- | ------------ | ---------- | ---------- | ---------- | ---------- |
-| Dashboard UI   | ✅         | ✅         | ❌     | ✅       | ❌    | ❌    | ❌           | ✅         | ✅         | ❌         | ⚠️ Planned |
-| Admin REST API | ⚠️ Partial | ✅         | ❌     | ✅       | ❌    | ❌    | ❌           | ⚠️ Scripts | ✅ Partial | ❌         | ⚠️ Planned |
-| Logs & metrics | ⚠️ Tools   | ⚠️ Logs    | ❌     | ✅       | ❌    | ❌    | ❌           | ⚠️ CLI     | ✅ Script  | ❌         | ⚠️ Planned |
+| Feature        | WireMock   | MockServer | Karate | Microcks | Dredd | Prism | Schemathesis | Mountebank | Hoverfly   | Mockintosh | 
+| -------------- | ---------- | ---------- | ------ | -------- | ----- | ----- | ------------ | ---------- | ---------- | ---------- | 
+| Dashboard UI   | ✅         | ✅         | ❌     | ✅       | ❌    | ❌    | ❌           | ✅         | ✅         | ❌         |
+| Admin REST API | ⚠️ Partial | ✅         | ❌     | ✅       | ❌    | ❌    | ❌           | ⚠️ Scripts | ✅ Partial | ❌         |
+| Logs & metrics | ⚠️ Tools   | ⚠️ Logs    | ❌     | ✅       | ❌    | ❌    | ❌           | ⚠️ CLI     | ✅ Script  | ❌         |
 
 ### Plugin Extensibility
 
-| Feature            | WireMock | MockServer | Karate | Microcks   | Dredd | Prism | Schemathesis | Mountebank | Hoverfly | Mockintosh | imiexer    |
-| ------------------ | -------- | ---------- | ------ | ---------- | ----- | ----- | ------------ | ---------- | -------- | ---------- | ---------- |
-| Plugin system      | ❌       | ❌         | ❌     | ✅         | ❌    | ❌    | ❌           | ✅         | ✅       | ❌         | ✅ Core    |
-| Behavior injection | ❌       | ❌         | ⚠️ DSL | ✅         | ❌    | ❌    | ❌           | ✅ Scripts | ✅       | ❌         | ✅ Hooks   |
-| Plugin ecosystem   | ❌       | ❌         | ❌     | ⚠️ Limited | ❌    | ❌    | ❌           | ⚠️ Minimal | ⚠️ Comm. | ❌         | ⚠️ Planned |
+| Feature            | WireMock | MockServer | Karate | Microcks   | Dredd | Prism | Schemathesis | Mountebank | Hoverfly | Mockintosh | 
+| ------------------ | -------- | ---------- | ------ | ---------- | ----- | ----- | ------------ | ---------- | -------- | ---------- | 
+| Plugin system      | ❌       | ❌         | ❌     | ✅         | ❌    | ❌    | ❌           | ✅         | ✅       | ❌         |
+| Behavior injection | ❌       | ❌         | ⚠️ DSL | ✅         | ❌    | ❌    | ❌           | ✅ Scripts | ✅       | ❌         |
+| Plugin ecosystem   | ❌       | ❌         | ❌     | ⚠️ Limited | ❌    | ❌    | ❌           | ⚠️ Minimal | ⚠️ Comm. | ❌         |
 
 ## 🛠 Use Cases
 
@@ -127,103 +127,6 @@ It delivers a clean developer experience, deep test integration, and smart OpenA
 1. Replay recorded interactions in CI pipelines
 1. Extend via plugins for contract verification or stateful testing
 
-## Features
+## imiexer Features
 
-### Execution & Integration
 
-- [ ] PyTest support
-- [ ] UnitTest support
-- [ ] CLI support
-- [x] Config-Based (YAML/env) support
-- [x] Decorator-Based API implementation
-- [ ] Fluent API (chainable methods)
-- [ ] CI/CD CLI
-- [ ] Shift-Left Approach
-- [ ] Container Support (Not Planned)
-- [ ] Standalone (Not Planned)
-
-### Core Mocking Capabilities
-
-- [x] Multi-Service Support
-- [ ] Stubbing
-- [x] Dynamic Response Templating
-- [x] Fault injection / delays
-- [x] Stateful Behaviors
-- [x] Request logging / history
-- [x] OpenAPI spec integration / validation
-- [x] Interaction recording
-- [ ] Fixture file support
-
-### Advanced Features
-
-- [ ] Proxying
-- [x] http/s support
-- [ ] gRPC support
-- [ ] GraphQL support
-- [ ] Webhooks and Callbacks
-- [x] URL matching
-- [x] HTTP Method matching
-- [x] Query parameters matching
-- [ ] Form parameters matching
-- [x] Headers matching
-- [ ] Basic authentication
-- [ ] Cookies matching
-- [x] Request body matching
-- [ ] Multipart/form-data matching
-- [x] Lifecycle events
-- [ ] Admin API and UI
-- [ ] Artificial Intelligence
-- [ ] Multi-Domain support
-- [ ] Behavior-Driven Development (BDD)
-
-### Plugin & Extensibility
-
-- [x] Extensibility
-- [ ] Plugin system
-- [ ] Behavior injection
-- [ ] Plugin ecosystem
-
-### Monitoring & Administration
-
-- [ ] Dashboard UI
-- [ ] Admin REST API
-- [ ] Logs & metrics
-
-### OpenAPI Compatibility
-
-- [ ] Swagger/JSON support
-- [ ] Spec validation
-
-### Protocol Support
-
-- [x] HTTP support
-- [x] HTTPS support
-- [ ] TCP support
-- [ ] WebSocket support
-- [ ] gRPC support
-- [ ] GraphQL support
-
-### Dynamic Response Templating
-
-- [ ] Templating engine
-- [ ] Conditional logic
-- [ ] Response injection
-
-### Matching Rules
-
-- [ ] Matchers supported
-- [ ] Matcher engine type
-- [ ] Matcher customization
-
-### Stateful Mocking
-
-- [ ] Scenario responses
-- [ ] History tracking
-- [ ] Mutable state
-- [ ] Sequence mocking
-
-### Recording Capabilities
-
-- [ ] Interaction logging
-- [ ] Replay support
-- [ ] Inspection API
